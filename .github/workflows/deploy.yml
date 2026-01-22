@@ -1,10 +1,13 @@
 name: Deploy React Site
 on:
   push:
-    branches: ["main"] # Sigurohu që emri i branch-it tënd është 'main'
+    branches: ["main"]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./jules_session_2869719376988903699_worktracker-app-2869719376988903699
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,7 +18,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist # Vite e nxjerr faqen e gatshme në folderin 'dist'
+          path: ./jules_session_2869719376988903699_worktracker-app-2869719376988903699/dist
 
   deploy:
     needs: build
